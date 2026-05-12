@@ -1,0 +1,580 @@
+ { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: 'Poppins', sans-serif; }
+
+/* Navbar styling */
+.navbar {
+    background: linear-gradient(90deg, #6c4f3c 0%, #a48467 100%);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    animation: fadedown 1s ease;
+}
+
+@keyframes fadedown {
+    from {
+        opacity: 0;
+        transform: translateY(-300px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+/* Hero Section (The background image) */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url('Lewan.jpg');
+    background-size: cover;
+    background-position: center;
+
+    text-align: center;
+    color: #4a4a4a;
+
+    margin-top: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.content-box {
+    animation: fadedown 2s ease;
+}
+
+.full-screen-overlay {
+  position: fixed; /* Stays in place during scroll */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background : url("//i.ibb.co/Zpts60rQ/IMG-0720.png") no-repeat center / cover ;
+   
+  z-index : -1; /* Ensure it's above everything else */
+  display: flex; /* Optional: centers content inside */
+  justify-content: center;
+  align-items: center;
+  animation: none;
+}
+
+
+/* Text Styling */
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 80px;
+    margin-bottom: 5px;
+}
+
+.subtitle { font-size: 18px; margin-bottom: 30px; letter-spacing: 2px; }
+
+.events {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 30px;
+    color: #6c4f3c;
+    margin-bottom: 20px;
+}
+
+.footer-text {
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: #888;
+}
+
+/* 1. Make sure the link is 'relative' so the line stays attached to it */
+.navbar a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+/* 2. Create the hidden white line */
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust this to move the line closer/further from the text */
+    width: 0;      /* Starts as invisible */
+    height: 3px;   /* Thickness of the line */
+    background: white;
+    transition: width 0.3s ease; /* Makes it slide smoothly */
+}
+
+/* 3. Make the line appear on hover */
+.navbar a:hover::after {
+    width: 100%; /* Grows to the full width of the text */
+}
+
+video {
+    width: 300px !important;
+    height: 300px !important;
+    object-fit: cover !important;
+    border-radius: 15px;
+}
+
+body {
+    background: #f7f3ee;
+}
+
+/* Portfolio Title */
+.portfolio-title {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+.portfolio-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 60px;
+    color: #6c4f3c;
+    font-style: italic;
+}
+
+.portfolio-title p {
+    color: #8b7b70;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+.video-section {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 80px 90px 130px;
+    background: linear-gradient(to bottom, #f7f3ee, #efe7de);
+    position: relative;
+}
+
+/* soft background glow */
+.video-section::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba(164, 132, 103, 0.08);
+    border-radius: 50%;
+    top: -150px;
+    left: -150px;
+    filter: blur(80px);
+}
+
+/* Cards */
+.video-card {
+    width: 310px;
+    background: rgba(255, 255, 255, 0.92);
+    padding: 18px 18px 40px;
+    border-radius: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 20px 45px rgba(108, 79, 60, 0.15),
+        0 5px 15px rgba(0,0,0,0.04);
+
+    border: 1px solid rgba(255,255,255,0.7);
+
+    transition: all 0.45s ease;
+}
+
+/* top shine */
+.video-card::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    left: -60px;
+    width: 180%;
+    height: 200px;
+    background: rgba(255,255,255,0.35);
+    transform: rotate(-8deg);
+}
+
+/* Hover Effect */
+.video-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow:
+        0 30px 60px rgba(108, 79, 60, 0.22),
+        0 10px 20px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-card video {
+    width: 260px !important;
+    height: 260px !important;
+    object-fit: cover;
+    border-radius: 22px;
+
+    border: 8px solid white;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.12);
+
+    transition: 0.4s ease;
+}
+
+.video-card:hover video {
+    transform: scale(1.03);
+}
+
+/* Titles */
+.video-card h3 {
+    margin-top: 28px;
+
+    font-family: 'Playfair Display', serif;
+    font-size: 31px;
+    font-style: italic;
+    font-weight: 600;
+
+    color: #6c4f3c;
+
+    letter-spacing: 1px;
+}
+
+/* Elegant line */
+.video-card h3::after {
+    content: "";
+    display: block;
+
+    width: 60px;
+    height: 2px;
+
+    background: linear-gradient(to right, #a48467, #d9c2ae);
+
+    margin: 16px auto 0;
+
+    border-radius: 10px;
+}
+
+/* small luxury text */
+.video-card p {
+    margin-top: 12px;
+
+    color: #9a887a;
+
+    font-size: 13px;
+    letter-spacing: 3px;
+}
+
+/* UNIQUE BOOKING PAGE */
+
+body {
+    background:
+        radial-gradient(circle at top left, rgba(164,132,103,0.25), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(108,79,60,0.18), transparent 35%),
+        #f7f3ee;
+}
+
+/* Main booking card */
+form {
+    max-width: 720px;
+    margin: 90px auto;
+    padding: 55px;
+    border-radius: 40px;
+
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.8);
+
+    box-shadow:
+        0 30px 70px rgba(108,79,60,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Elegant corner decoration */
+form::before {
+    content: "✦";
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 36px;
+    color: rgba(164,132,103,0.45);
+}
+
+form::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(164,132,103,0.25);
+    border-radius: 30px;
+    pointer-events: none;
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 58px;
+    font-style: italic;
+    color: #6c4f3c;
+    margin-bottom: 45px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #a48467, transparent);
+    margin: 18px auto 0;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Labels */
+label {
+    color: #6c4f3c;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    max-width: none;
+
+    padding: 16px 18px;
+
+    border: 1px solid rgba(164,132,103,0.25);
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.75);
+
+    outline: none;
+
+    font-size: 15px;
+    color: #5c4b40;
+
+    transition: 0.35s ease;
+}
+
+input:focus {
+    border-color: #a48467;
+    box-shadow: 0 0 0 5px rgba(164,132,103,0.12);
+    transform: translateY(-2px);
+}
+
+/* Expandable services */
+details {
+    max-width: none;
+    border: 1px solid rgba(164,132,103,0.25);
+    border-radius: 22px;
+    padding: 18px 20px;
+    background: rgba(255,255,255,0.75);
+}
+
+summary {
+    color: #6c4f3c;
+    font-weight: 700;
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: "＋";
+    float: right;
+    color: #a48467;
+}
+
+details[open] summary::after {
+    content: "−";
+}
+
+/* Checkbox items */
+.checkbox-group {
+    margin-top: 18px;
+}
+
+.checkbox-item {
+    padding: 12px 14px;
+    border-radius: 14px;
+    color: #756457;
+    transition: 0.3s ease;
+}
+
+.checkbox-item:hover {
+    background: rgba(164,132,103,0.10);
+    transform: translateX(5px);
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+button {
+    padding: 15px 34px;
+    border-radius: 40px;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.35s ease;
+}
+
+button[type="submit"] {
+    background: linear-gradient(135deg, #6c4f3c, #a48467);
+    color: white;
+    box-shadow: 0 12px 28px rgba(108,79,60,0.25);
+}
+
+button[type="reset"] {
+    background: rgba(255,255,255,0.85);
+    color: #6c4f3c;
+    border: 1px solid rgba(164,132,103,0.35);
+}
+
+button:hover {
+    transform: translateY(-5px);
+}
+
+/* ========================= */
+/* HOME PAGE */
+/* ========================= */
+
+.hero-home {
+    position: relative;
+    height: 100vh;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.35),
+        rgba(0,0,0,0.35)),
+
+        url("Lewan.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+/* soft luxury glow */
+.hero-home::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    background: rgba(255,255,255,0.08);
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    top: -200px;
+    right: -100px;
+}
+
+/* content */
+.home-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+
+    padding: 40px;
+
+    animation: fadedown 1.5s ease;
+}
+
+.home-content h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 85px;
+    font-style: italic;
+
+    color: white;
+
+    margin-bottom: 25px;
+
+    text-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.home-content p {
+    color: rgba(255,255,255,0.92);
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 40px;
+}
+
+/* luxury button */
+.home-btn {
+    display: inline-block;
+
+    padding: 18px 42px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    background: linear-gradient(135deg, #6c4f3c, #a48467);
+
+    color: white;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    transition: 0.4s ease;
+
+    box-shadow: 0 15px 35px rgba(108,79,60,0.35);
+}
+
+.home-btn:hover {
+    transform: translateY(-6px) scale(1.03);
+
+    box-shadow: 0 25px 45px rgba(108,79,60,0.45);
+}v
