@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <body>
+
+<header>
+    <nav class="navbar">
+        <a href="HH.html">Home</a>
+        <a href="Portfolio.html">Portfolio</a>
+        <a href="Booking.html">Booking</a>
+    </nav>
+</header>
+
+<h2>Booking Form</h2>
+
+<form>
+    <title>Booking Form</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<h2>Booking Form</h2>
+
+<form id="bookingForm">
+    <div class="form-group">
+        <label>Full Name:</label>
+        <input id="name" type="text" placeholder="Enter your name" required>
+    </div>
+
+    <div class="form-group">
+        <label>Phone Number:</label>
+        <input id="phone" type="tel" placeholder="000-000-0000" required>
+    </div>
+
+    <div class="form-group">
+        <label>Event Date:</label>
+        <input id="date" type="date" required>
+        <p id="dateMessage" style="font-weight:bold;"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Preferred Time:</label>
+        <input id="time" type="time" required>
+    </div>
+
+    <div class="form-group">
+        <details>
+            <summary>Select Services Needed</summary>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><input type="checkbox" value="Wedding Decor"> Wedding Decor</div>
+                <div class="checkbox-item"><input type="checkbox" value="Henna Night Setup"> Henna Night Setup</div>
+                <div class="checkbox-item"><input type="checkbox" value="Baby Shower Design"> Baby Shower Design</div>
+                <div class="checkbox-item"><input type="checkbox" value="Floral Arrangements"> Floral Arrangements</div>
+                <div class="checkbox-item"><input type="checkbox" value="Lighting & Sound"> Lighting & Sound</div>
+            </div>
+        </details>
+    </div>
+
+    <div class="buttons">
+        <button type="submit">Submit Inquiry</button>
+        <button type="reset">Clear</button>
+    </div>
+</form>
+
+<script>
+const form = document.getElementById("bookingForm");
+const dateInput = document.getElementById("date");
+const dateMessage = document.getElementById("dateMessage");
+
+let bookedDates = JSON.parse(localStorage.getItem("bookedDates")) || [];
+
+dateInput.addEventListener("change", function () {
+    if (bookedDates.includes(dateInput.value)) {
+        dateMessage.textContent = "This date is already booked and not available.";
+        dateMessage.style.color = "red";
+    } else {
+        dateMessage.textContent = "This date is available.";
+        dateMessage.style.color = "green";
+    }
+});
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const selectedDate = dateInput.value;
+
+    if (bookedDates.includes(selectedDate)) {
+        alert("Sorry, this date is already booked.");
+        return;
+    }
+
+
+    bookedDates.push(selectedDate);
+    localStorage.setItem("bookedDates", JSON.stringify(bookedDates));
+
+    
+
+    alert("PDF downloaded. Gmail will open now. Attach the PDF manually, then send.");
+    form.reset();
+    dateMessage.textContent = "";
+});
+</script>
+
+</body>
+</html>
